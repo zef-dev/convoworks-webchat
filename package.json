@@ -1,6 +1,6 @@
 {
-  "name": "convoworks-webchat",
-  "version": "1.0.1",
+  "name": "@zef-dev/convoworks-webchat",
+  "version": "1.0.2",
   "description": "Convoworks Webchat Component",
   "author": "zef-dev",
   "license": "MIT",
