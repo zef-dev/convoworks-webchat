@@ -3,6 +3,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var axios = _interopDefault(require('axios'));
+require('./index.css');
 
 function _readOnlyError(name) {
   throw new Error("\"" + name + "\" is read-only");
