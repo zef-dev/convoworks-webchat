@@ -2,6 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const styleVars = {
+  color_primary: "#2f74ea",
+  color_secondary: "red",
+  color_white: "#fff",
+  color_black: "#000",
+  text_color: "#fff",
+  input_padding: "0.875rem 1.25rem",
+  border: "1px solid rgba(#000, 0.1)",
+  transition: "all 220ms ease-in-out"
+};
+
 let _ = t => t,
     _t,
     _t2,
@@ -22,34 +33,34 @@ const MessageBlob = styled.div(_t || (_t = _`
 	}
 
 	> div {
-		border: 1px solid $color--primary;
+		border: 1px solid ${0};
 		padding: 0.5rem 1rem;
 		padding-bottom: 0.75rem;
 		border-radius: 0.875rem;
 	}
-`));
+`), styleVars.color_primary);
 const MessageBlobResponse = styled(MessageBlob)(_t2 || (_t2 = _`
 	justify-content: flex-start;
 	text-align: left;
-	color: #000;
+	color: ${0};
 
 	> div {
-		background: $color--white;
+		background: ${0};
 		border-bottom-left-radius: 0;
 		margin-right: auto;
 	}
-`));
+`), styleVars.color_black, styleVars.color_white);
 const MessageBlobUser = styled(MessageBlob)(_t3 || (_t3 = _`
 	justify-content: flex-end;
 	text-align: right;
-	color: "#000";
+	color: ${0};
 
 	> div {
-		background: $color--primary;
+		background: ${0};
 		border-bottom-right-radius: 0;
 		margin-left: auto;
 	}
-`));
+`), styleVars.color_white, styleVars.color_primary);
 
 function Message(props) {
   const [visible, setVisible] = useState(false);
@@ -160,16 +171,6 @@ let _$2 = t => t,
     _t5,
     _t6,
     _t7;
-const styleVars = {
-  color_primary: "#2f74ea",
-  color_secondary: "red",
-  color_white: "#fff",
-  color_black: "#000",
-  text_color: "#fff",
-  input_padding: "0.875rem 1.25rem",
-  border: "1px solid rgba(#000, 0.1)",
-  transition: "all 220ms ease-in-out"
-};
 const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	text-align: center;
 	display: flex;
@@ -190,6 +191,7 @@ const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	padding: ${0};
 	color: ${0};
 	cursor: pointer;
+	font-size: 0.875rem;
 `), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
 const Body = styled.div(_t3$1 || (_t3$1 = _$2`
 	height: 22rem;

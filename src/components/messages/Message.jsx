@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { styleVars } from "../styles";
 
 const MessageBlob = styled.div`
 	display: flex;
@@ -18,7 +19,7 @@ const MessageBlob = styled.div`
 	}
 
 	> div {
-		border: 1px solid $color--primary;
+		border: 1px solid ${styleVars.color_primary};
 		padding: 0.5rem 1rem;
 		padding-bottom: 0.75rem;
 		border-radius: 0.875rem;
@@ -28,10 +29,10 @@ const MessageBlob = styled.div`
 const MessageBlobResponse = styled(MessageBlob)`
 	justify-content: flex-start;
 	text-align: left;
-	color: #000;
+	color: ${styleVars.color_black};
 
 	> div {
-		background: $color--white;
+		background: ${styleVars.color_white};
 		border-bottom-left-radius: 0;
 		margin-right: auto;
 	}
@@ -40,10 +41,10 @@ const MessageBlobResponse = styled(MessageBlob)`
 const MessageBlobUser = styled(MessageBlob)`
 	justify-content: flex-end;
 	text-align: right;
-	color: "#000";
+	color: ${styleVars.color_white};
 
 	> div {
-		background: $color--primary;
+		background: ${styleVars.color_primary};
 		border-bottom-right-radius: 0;
 		margin-left: auto;
 	}

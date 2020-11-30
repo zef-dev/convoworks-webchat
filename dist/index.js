@@ -18,8 +18,19 @@ function _readOnlyError(name) {
   throw new Error("\"" + name + "\" is read-only");
 }
 
+var styleVars = {
+  color_primary: "#2f74ea",
+  color_secondary: "red",
+  color_white: "#fff",
+  color_black: "#000",
+  text_color: "#fff",
+  input_padding: "0.875rem 1.25rem",
+  border: "1px solid rgba(#000, 0.1)",
+  transition: "all 220ms ease-in-out"
+};
+
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: \"#000\";\n\n\t> div {\n\t\tbackground: $color--primary;\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t}\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -29,7 +40,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-start;\n\ttext-align: left;\n\tcolor: #000;\n\n\t> div {\n\t\tbackground: $color--white;\n\t\tborder-bottom-left-radius: 0;\n\t\tmargin-right: auto;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-start;\n\ttext-align: left;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-left-radius: 0;\n\t\tmargin-right: auto;\n\t}\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -39,7 +50,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 0.875rem;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid $color--primary;\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 0.875rem;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid ", ";\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -47,9 +58,9 @@ function _templateObject() {
 
   return data;
 }
-var MessageBlob = styled.div(_templateObject());
-var MessageBlobResponse = styled(MessageBlob)(_templateObject2());
-var MessageBlobUser = styled(MessageBlob)(_templateObject3());
+var MessageBlob = styled.div(_templateObject(), styleVars.color_primary);
+var MessageBlobResponse = styled(MessageBlob)(_templateObject2(), styleVars.color_black, styleVars.color_white);
+var MessageBlobUser = styled(MessageBlob)(_templateObject3(), styleVars.color_white, styleVars.color_primary);
 
 function Message(props) {
   var _useState = React.useState(false),
@@ -208,7 +219,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tcursor: pointer;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tcursor: pointer;\n\tfont-size: 0.875rem;\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -226,16 +237,6 @@ function _templateObject$2() {
 
   return data;
 }
-var styleVars = {
-  color_primary: "#2f74ea",
-  color_secondary: "red",
-  color_white: "#fff",
-  color_black: "#000",
-  text_color: "#fff",
-  input_padding: "0.875rem 1.25rem",
-  border: "1px solid rgba(#000, 0.1)",
-  transition: "all 220ms ease-in-out"
-};
 var Wrapper = styled.div(_templateObject$2(), styleVars.color_white);
 var Header = styled.header(_templateObject2$1(), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
 var Body = styled.div(_templateObject3$1(), styleVars.border);

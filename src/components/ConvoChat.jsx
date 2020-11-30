@@ -5,17 +5,7 @@ import MessageGroup from "./messages/MessageGroup";
 import IconSend from "../assets/icons/IconSend";
 import { useEffect } from "react";
 import styled from "styled-components";
-
-const styleVars = {
-	color_primary: "#2f74ea",
-	color_secondary: "red",
-	color_white: "#fff",
-	color_black: "#000",
-	text_color: "#fff",
-	input_padding: "0.875rem 1.25rem",
-	border: "1px solid rgba(#000, 0.1)",
-	transition: "all 220ms ease-in-out",
-};
+import { styleVars } from "./styles";
 
 const Wrapper = styled.div`
 	text-align: center;
@@ -38,6 +28,7 @@ const Header = styled.header`
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
 	cursor: pointer;
+	font-size: 0.875rem;
 `;
 
 const Body = styled.div`
