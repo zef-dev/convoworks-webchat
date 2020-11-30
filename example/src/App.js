@@ -1,7 +1,5 @@
 import React from 'react'
-
-import 'convo-chat/dist/index.css'
-import { ConvoChatComponent } from 'convo-chat'
+import {ConvoChatComponent} from 'convoworks-webchat';
 
 const App = () => {
   return <ConvoChatComponent serviceId='servis' variant='b' isLaunch={false} />
