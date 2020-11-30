@@ -17,6 +17,11 @@ const Wrapper = styled.div`
 	width: 18.75rem;
 	margin: auto;
 	background: ${styleVars.color_white};
+	box-sizing: border-box;
+
+	* {
+		box-sizing: border-box;
+	}
 `;
 
 const Header = styled.header`

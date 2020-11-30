@@ -2,7 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const styleVars = {
+function _taggedTemplateLiteralLoose(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  strings.raw = raw;
+  return strings;
+}
+
+function _readOnlyError(name) {
+  throw new Error("\"" + name + "\" is read-only");
+}
+
+var styleVars = {
   color_primary: "#2f74ea",
   color_secondary: "red",
   color_white: "#fff",
@@ -13,57 +26,43 @@ const styleVars = {
   transition: "all 220ms ease-in-out"
 };
 
-let _ = t => t,
-    _t,
-    _t2,
-    _t3;
-const MessageBlob = styled.div(_t || (_t = _`
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	font-size: 0.875rem;
-	line-height: 1.6;
+function _templateObject3() {
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t}\n"]);
 
-	&:after {
-		content: "";
-		display: block;
-		height: 0.625rem;
-	}
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
 
-	> div {
-		border: 1px solid ${0};
-		padding: 0.5rem 1rem;
-		padding-bottom: 0.75rem;
-		border-radius: 0.875rem;
-	}
-`), styleVars.color_primary);
-const MessageBlobResponse = styled(MessageBlob)(_t2 || (_t2 = _`
-	justify-content: flex-start;
-	text-align: left;
-	color: ${0};
+  return data;
+}
 
-	> div {
-		background: ${0};
-		border-bottom-left-radius: 0;
-		margin-right: auto;
-	}
-`), styleVars.color_black, styleVars.color_white);
-const MessageBlobUser = styled(MessageBlob)(_t3 || (_t3 = _`
-	justify-content: flex-end;
-	text-align: right;
-	color: ${0};
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-start;\n\ttext-align: left;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-left-radius: 0;\n\t\tmargin-right: auto;\n\t}\n"]);
 
-	> div {
-		background: ${0};
-		border-bottom-right-radius: 0;
-		margin-left: auto;
-	}
-`), styleVars.color_white, styleVars.color_primary);
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 0.875rem;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid ", ";\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var MessageBlob = styled.div(_templateObject(), styleVars.color_primary);
+var MessageBlobResponse = styled(MessageBlob)(_templateObject2(), styleVars.color_black, styleVars.color_white);
+var MessageBlobUser = styled(MessageBlob)(_templateObject3(), styleVars.color_white, styleVars.color_primary);
 
 function Message(props) {
-  const [visible, setVisible] = useState(false);
+  var _useState = useState(false),
+      visible = _useState[0],
+      setVisible = _useState[1];
 
   function findPos(obj) {
     var curtop = 0;
@@ -81,16 +80,16 @@ function Message(props) {
     props.scrollArea.current.scroll(0, findPos(props.scrollAnchor.current));
   }
 
-  useEffect(() => {
+  useEffect(function () {
     if (props.timeout) {
-      setTimeout(() => {
+      setTimeout(function () {
         setVisible(true);
       }, [props.timeout]);
     } else {
       setVisible(true);
     }
   }, [props]);
-  useEffect(() => {
+  useEffect(function () {
     handleScroll();
   }, [visible]);
 
@@ -110,8 +109,8 @@ function Message(props) {
 }
 
 function MessageGroup(props) {
-  const handleResponses = items => {
-    return items.map((item, index) => {
+  var handleResponses = function handleResponses(items) {
+    return items.map(function (item, index) {
       return /*#__PURE__*/React.createElement(Message, {
         type: 'response',
         text: item,
@@ -131,13 +130,16 @@ function MessageGroup(props) {
   }), handleResponses(props.text_responses));
 }
 
-let _$1 = t => t,
-    _t$1;
-const Icon = styled.div(_t$1 || (_t$1 = _$1`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`));
+function _templateObject$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Icon = styled.div(_templateObject$1());
 
 function IconSend() {
   return /*#__PURE__*/React.createElement(Icon, {
@@ -152,7 +154,7 @@ function IconSend() {
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
-    class: "feather feather-send"
+    "class": "feather feather-send"
   }, /*#__PURE__*/React.createElement("line", {
     x1: "22",
     y1: "2",
@@ -163,112 +165,118 @@ function IconSend() {
   })));
 }
 
-let _$2 = t => t,
-    _t$2,
-    _t2$1,
-    _t3$1,
-    _t4,
-    _t5,
-    _t6,
-    _t7;
-const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	height: 100%;
-	width: 18.75rem;
-	margin: auto;
-	background: ${0};
-`), styleVars.color_white);
-const Header = styled.header(_t2$1 || (_t2$1 = _$2`
-	height: 3rem;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	background: ${0};
-	padding: ${0};
-	color: ${0};
-	cursor: pointer;
-	font-size: 0.875rem;
-`), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
-const Body = styled.div(_t3$1 || (_t3$1 = _$2`
-	height: 22rem;
-	width: 100%;
-	border: ${0};
-	border-bottom: none;
-	padding: 1rem 1.25rem;
-	overflow: hidden;
-	overflow-y: scroll;
-	scroll-behavior: smooth;
-`), styleVars.border);
-const Anchor = styled.div(_t4 || (_t4 = _$2`
-	padding-bottom: 0.625rem;
-`));
-const Form = styled.form(_t5 || (_t5 = _$2`
-	width: 100%;
-	border: ${0};
-	border-top: ${0};
-	padding: 0 0.625rem;
-	padding-left: 1.25rem;
-	display: flex;
-	align-items: center;
-`), styleVars.border, styleVars.border);
-const FormInput = styled.input(_t6 || (_t6 = _$2`
-	text-align: left;
-	width: 100%;
-	padding: 0.875rem 0;
-	border: none;
-	line-height: 1.6;
-	border-top: none;
-`));
-const FormButton = styled.button(_t7 || (_t7 = _$2`
-	width: 2rem;
-	height: 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: ${0};
-	border: none;
-	outline: none;
-	border-radius: 50%;
-	transition: ${0};
+function _templateObject7() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
 
-	&:hover {
-		cursor: pointer;
-		opacity: 0.75;
-	}
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
 
-	svg {
-		filter: brightness(0) invert(1);
-		width: 1rem;
-	}
-`), styleVars.color_primary, styleVars.transition);
+  return data;
+}
 
-const ConvoChat = props => {
-  const [message, setMessage] = useState("");
-  const [messageGroups, setMessageGroups] = useState([]);
-  const [chatVisible, setChatVisible] = useState(true);
-  const [deviceId, setDeviceId] = useState(null);
-  const serviceId = props.serviceId;
-  const variant = props.variant;
-  const isLaunch = props.isLaunch;
-  const mainInput = useRef(null);
-  const scrollArea = useRef(null);
-  const scrollAnchor = useRef(null);
-  const convoPublicApiBaseUrl = `http://localhost:9090/rest_public/convo/v1`;
-  useEffect(() => {
+function _templateObject6() {
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 0;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tpadding: 0 0.625rem;\n\tpadding-left: 1.25rem;\n\tdisplay: flex;\n\talign-items: center;\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tcursor: pointer;\n\tfont-size: 0.875rem;\n"]);
+
+  _templateObject2$1 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$2() {
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 18.75rem;\n\tmargin: auto;\n\tbackground: ", ";\n"]);
+
+  _templateObject$2 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper = styled.div(_templateObject$2(), styleVars.color_white);
+var Header = styled.header(_templateObject2$1(), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
+var Body = styled.div(_templateObject3$1(), styleVars.border);
+var Anchor = styled.div(_templateObject4());
+var Form = styled.form(_templateObject5(), styleVars.border, styleVars.border);
+var FormInput = styled.input(_templateObject6());
+var FormButton = styled.button(_templateObject7(), styleVars.color_primary, styleVars.transition);
+
+var ConvoChat = function ConvoChat(props) {
+  var _useState = useState(""),
+      message = _useState[0],
+      setMessage = _useState[1];
+
+  var _useState2 = useState([]),
+      messageGroups = _useState2[0],
+      setMessageGroups = _useState2[1];
+
+  var _useState3 = useState(true),
+      chatVisible = _useState3[0],
+      setChatVisible = _useState3[1];
+
+  var _useState4 = useState(null),
+      deviceId = _useState4[0],
+      setDeviceId = _useState4[1];
+
+  var serviceId = props.serviceId;
+  var variant = props.variant;
+  var isLaunch = props.isLaunch;
+  var mainInput = useRef(null);
+  var scrollArea = useRef(null);
+  var scrollAnchor = useRef(null);
+  var convoPublicApiBaseUrl = "http://localhost:9090/rest_public/convo/v1";
+  useEffect(function () {
     setDeviceId("device");
   }, []);
 
   function sendMessage(text) {
     if (!variant) {
-      variant = "develop";
+      variant = (_readOnlyError("variant"), "develop");
     }
 
-    const url = convoPublicApiBaseUrl + "/service-run/webchat/" + variant + "/" + serviceId;
-    const data = {
+    var url = convoPublicApiBaseUrl + "/service-run/webchat/" + variant + "/" + serviceId;
+    var data = {
       device_id: deviceId,
       text: text,
       lunch: isLaunch
@@ -277,27 +285,29 @@ const ConvoChat = props => {
       method: "post",
       url: url,
       data: data
-    }).then(res => {
-      setMessageGroups([...messageGroups, {
+    }).then(function (res) {
+      setMessageGroups([].concat(messageGroups, [{
         text: message,
         text_responses: res.data.text_responses
-      }]);
+      }]));
       setMessage(null);
       mainInput.current.value = "";
-    }).catch(err => console.log(err));
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   }
 
   return /*#__PURE__*/React.createElement(Wrapper, {
     className: "convo-chat"
   }, /*#__PURE__*/React.createElement(Header, {
     className: "convo-chat__header",
-    onClick: () => {
+    onClick: function onClick() {
       setChatVisible(!chatVisible);
     }
   }, "Chat"), chatVisible && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
-  }, messageGroups.map((item, index) => {
+  }, messageGroups.map(function (item, index) {
     return /*#__PURE__*/React.createElement(MessageGroup, {
       key: index,
       text: item.text,
@@ -310,7 +320,7 @@ const ConvoChat = props => {
     ref: scrollAnchor
   })), /*#__PURE__*/React.createElement(Form, {
     className: "convo-chat__form",
-    onSubmit: e => {
+    onSubmit: function onSubmit(e) {
       e.preventDefault();
       message && sendMessage(message);
     }
@@ -319,7 +329,7 @@ const ConvoChat = props => {
     type: "text",
     defaultValue: "",
     placeholder: "Type a message",
-    onChange: e => {
+    onChange: function onChange(e) {
       console.log(e);
       setMessage(e.target.value);
     }
@@ -328,7 +338,7 @@ const ConvoChat = props => {
   }, /*#__PURE__*/React.createElement(IconSend, null)))));
 };
 
-const ConvoChatComponent = props => {
+var ConvoChatComponent = function ConvoChatComponent(props) {
   return /*#__PURE__*/React.createElement(ConvoChat, {
     serviceId: props.serviceId,
     variant: props.variant,
