@@ -1,6 +1,6 @@
 import React from 'react'
-import ConvoChat from './components/ConvoChat'
+import Chat from './components/Chat'
 
-export const ConvoChatComponent = (props) => {
-	return <ConvoChat serviceId={props.serviceId} variant={props.variant} isLaunch={props.isLaunch} />
+export default function ConvoworksWebchat(props){
+	return <Chat apiUrl={props.apiUrl} serviceId={props.serviceId} variant={props.variant} isLaunch={props.isLaunch} />
 }

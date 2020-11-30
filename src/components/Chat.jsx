@@ -93,7 +93,7 @@ const FormButton = styled.button`
 	}
 `;
 
-const ConvoChat = (props) => {
+const Chat = (props) => {
 	//State params
 	const [message, setMessage] = useState("");
 	const [messageGroups, setMessageGroups] = useState([]);
@@ -111,7 +111,7 @@ const ConvoChat = (props) => {
 	const scrollAnchor = useRef(null);
 
 	//Api Routes
-	const convoPublicApiBaseUrl = `http://localhost:9090/rest_public/convo/v1`;
+	const convoPublicApiBaseUrl = props.apiUrl;
 
 	useEffect(() => {
 		setDeviceId("device");
@@ -204,4 +204,4 @@ const ConvoChat = (props) => {
 	);
 };
 
-export default ConvoChat;
+export default Chat;

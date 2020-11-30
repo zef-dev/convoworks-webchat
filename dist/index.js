@@ -229,7 +229,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 18.75rem;\n\tmargin: auto;\n\tbackground: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 18.75rem;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -245,7 +245,7 @@ var Form = styled.form(_templateObject5(), styleVars.border, styleVars.border);
 var FormInput = styled.input(_templateObject6());
 var FormButton = styled.button(_templateObject7(), styleVars.color_primary, styleVars.transition);
 
-var ConvoChat = function ConvoChat(props) {
+var Chat = function Chat(props) {
   var _useState = React.useState(""),
       message = _useState[0],
       setMessage = _useState[1];
@@ -268,7 +268,7 @@ var ConvoChat = function ConvoChat(props) {
   var mainInput = React.useRef(null);
   var scrollArea = React.useRef(null);
   var scrollAnchor = React.useRef(null);
-  var convoPublicApiBaseUrl = "http://localhost:9090/rest_public/convo/v1";
+  var convoPublicApiBaseUrl = props.apiUrl;
   React.useEffect(function () {
     setDeviceId("device");
   }, []);
@@ -341,13 +341,14 @@ var ConvoChat = function ConvoChat(props) {
   }, /*#__PURE__*/React__default.createElement(IconSend, null)))));
 };
 
-var ConvoChatComponent = function ConvoChatComponent(props) {
-  return /*#__PURE__*/React__default.createElement(ConvoChat, {
+function ConvoworksWebchat(props) {
+  return /*#__PURE__*/React__default.createElement(Chat, {
+    apiUrl: props.apiUrl,
     serviceId: props.serviceId,
     variant: props.variant,
     isLaunch: props.isLaunch
   });
-};
+}
 
-exports.ConvoChatComponent = ConvoChatComponent;
+module.exports = ConvoworksWebchat;
 //# sourceMappingURL=index.js.map
