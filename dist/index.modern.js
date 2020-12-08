@@ -59,6 +59,10 @@ const MessageBlobUser = styled(MessageBlob)(_t3 || (_t3 = _`
 		background: ${0};
 		border-bottom-right-radius: 0;
 		margin-left: auto;
+		
+		&:empty {
+			display: none;
+		}
 	}
 `), styleVars.color_white, styleVars.color_primary);
 
@@ -226,7 +230,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	}
 `), styleVars.color_white);
 const Header = styled.header(_t2$1 || (_t2$1 = _$2`
-	height: 3rem;
+	height: 3.125rem;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -267,18 +271,17 @@ const Form = styled.form(_t6 || (_t6 = _$2`
 	width: 100%;
 	border: ${0};
 	border-top: ${0};
-	padding: 0 0.625rem;
-	padding-left: 1.25rem;
 	display: flex;
 	align-items: center;
 `), styleVars.border, styleVars.border);
 const FormInput = styled.input(_t7 || (_t7 = _$2`
 	text-align: left;
 	width: 100%;
-	padding: 0.875rem 0;
+	padding: 0.875rem 1.25rem;
 	border: none;
 	line-height: 1.6;
 	border-top: none;
+	height: 3.125rem;
 `));
 const FormButton = styled.button(_t8 || (_t8 = _$2`
 	width: 2rem;

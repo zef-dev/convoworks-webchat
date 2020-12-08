@@ -47,6 +47,10 @@ const MessageBlobUser = styled(MessageBlob)`
 		background: ${styleVars.color_primary};
 		border-bottom-right-radius: 0;
 		margin-left: auto;
+		
+		&:empty {
+			display: none;
+		}
 	}
 `;
 

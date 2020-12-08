@@ -30,7 +30,7 @@ var styleVars = {
 };
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t\t\n\t\t&:empty {\n\t\t\tdisplay: none;\n\t\t}\n\t}\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -199,7 +199,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 0;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -209,7 +209,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tpadding: 0 0.625rem;\n\tpadding-left: 1.25rem;\n\tdisplay: flex;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tdisplay: flex;\n\talign-items: center;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -249,7 +249,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;

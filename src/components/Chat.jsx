@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-	height: 3rem;
+	height: 3.125rem;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -82,8 +82,6 @@ const Form = styled.form`
 	width: 100%;
 	border: ${styleVars.border};
 	border-top: ${styleVars.border};
-	padding: 0 0.625rem;
-	padding-left: 1.25rem;
 	display: flex;
 	align-items: center;
 `;
@@ -91,10 +89,11 @@ const Form = styled.form`
 const FormInput = styled.input`
 	text-align: left;
 	width: 100%;
-	padding: 0.875rem 0;
+	padding: 0.875rem 1.25rem;
 	border: none;
 	line-height: 1.6;
 	border-top: none;
+	height: 3.125rem;
 `;
 
 const FormButton = styled.button`
