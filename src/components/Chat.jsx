@@ -144,7 +144,7 @@ const Chat = (props) => {
 
 	useEffect(() => {
 		sendMessage('');
-	}, []);
+	}, [deviceId]);
 
 	// handle message submit
 	function sendMessage(text) {

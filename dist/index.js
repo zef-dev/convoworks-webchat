@@ -304,7 +304,7 @@ var Chat = function Chat(props) {
   }, []);
   React.useEffect(function () {
     sendMessage('');
-  }, []);
+  }, [deviceId]);
 
   function sendMessage(text) {
     if (!variant) {
