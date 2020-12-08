@@ -8,10 +8,10 @@ Webchat for the Convoworks
 ``` 
 import ConvoworksWebchat from '@zef-dev/convoworks-webchat'
 
-<ConvoworksWebchat apiUrl="http://localhost:9090/rest_public/convo/v1" serviceId="servis" variant="b" isLaunch={false} />
+<ConvoworksWebchat title="Title" apiUrl="http://localhost:9090/rest_public/convo/v1" serviceId="servis" variant="b" />
 ```
 ## required parameters 
+```title={string}```
 ```apiUrl={string}```
 ```serviceId={string}```
 ```variant={string}```
-```serviceId={boolean}```

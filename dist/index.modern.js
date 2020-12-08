@@ -428,10 +428,10 @@ const Chat = props => {
 
 function ConvoworksWebchat(props) {
   return /*#__PURE__*/React.createElement(Chat, {
+    title: props.title,
     apiUrl: props.apiUrl,
     serviceId: props.serviceId,
-    variant: props.variant,
-    isLaunch: props.isLaunch
+    variant: props.variant
   });
 }
 
