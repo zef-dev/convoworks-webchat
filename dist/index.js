@@ -209,7 +209,7 @@ function IconMinus() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 4rem;\n\theight: 100%;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -249,7 +249,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n\tflex: 1;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -259,7 +259,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tflex-direction: column;\n\tflex: 1;\n\tflex-basis: auto;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -279,7 +279,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -289,7 +289,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\tbackground: none;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -365,7 +365,7 @@ var Chat = function Chat(props) {
   }
 
   var chatBodyStyle = {
-    display: chatVisible ? 'block' : 'none'
+    display: chatVisible ? 'flex' : 'none'
   };
   return /*#__PURE__*/React__default.createElement(Wrapper, {
     className: "convo-chat"
@@ -373,7 +373,6 @@ var Chat = function Chat(props) {
     className: "convo-chat__header"
   }, /*#__PURE__*/React__default.createElement("span", null, props.title ? props.title : 'Title'), /*#__PURE__*/React__default.createElement(HeaderActions, null, /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick() {
-      setDeviceId(Math.random().toString(36).substring(7));
       setMessageGroups([]);
       setMessage("");
     }

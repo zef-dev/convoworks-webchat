@@ -230,6 +230,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	align-items: center;
 	height: 100%;
 	width: 100%;
+	flex-basis: auto;
 	margin: auto;
 	background: ${0};
 	box-sizing: border-box;
@@ -242,7 +243,6 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		background: none;
 		outline: none;
 		border: none;
 		padding: 0;
@@ -260,6 +260,10 @@ const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	padding: ${0};
 	color: ${0};
 	font-size: 0.875rem;
+
+	button {
+		background: transparent;
+	}
 `), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
 const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
 	display: flex;
@@ -277,9 +281,11 @@ const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
 `), styleVars.color_white, styleVars.color_white);
 const BodyWrapper = styled.div(_t4 || (_t4 = _$2`
 	width: 100%;
+	flex-direction: column;
+	flex: 1;
+	flex-basis: auto;
 `));
 const Body = styled.div(_t5 || (_t5 = _$2`
-	height: 22rem;
 	width: 100%;
 	border: ${0};
 	border-bottom: none;
@@ -287,6 +293,7 @@ const Body = styled.div(_t5 || (_t5 = _$2`
 	overflow: hidden;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
+	flex: 1;
 `), styleVars.border);
 const Anchor = styled.div(_t6 || (_t6 = _$2`
 	padding-bottom: 0.625rem;
@@ -308,15 +315,14 @@ const FormInput = styled.input(_t8 || (_t8 = _$2`
 	height: 3.125rem;
 `));
 const FormButton = styled.button(_t9 || (_t9 = _$2`
-	width: 2rem;
-	height: 2rem;
+	width: 4rem;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: ${0};
 	border: none;
 	outline: none;
-	border-radius: 50%;
 	transition: ${0};
 
 	&:hover {
@@ -374,7 +380,7 @@ const Chat = props => {
   }
 
   const chatBodyStyle = {
-    display: chatVisible ? 'block' : 'none'
+    display: chatVisible ? 'flex' : 'none'
   };
   return /*#__PURE__*/React.createElement(Wrapper, {
     className: "convo-chat"
@@ -382,7 +388,6 @@ const Chat = props => {
     className: "convo-chat__header"
   }, /*#__PURE__*/React.createElement("span", null, props.title ? props.title : 'Title'), /*#__PURE__*/React.createElement(HeaderActions, null, /*#__PURE__*/React.createElement("button", {
     onClick: () => {
-      setDeviceId(Math.random().toString(36).substring(7));
       setMessageGroups([]);
       setMessage("");
     }

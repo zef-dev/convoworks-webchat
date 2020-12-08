@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	height: 100%;
 	width: 100%;
+	flex-basis: auto;
 	margin: auto;
 	background: ${styleVars.color_white};
 	box-sizing: border-box;
@@ -28,7 +29,6 @@ const Wrapper = styled.div`
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		background: none;
 		outline: none;
 		border: none;
 		padding: 0;
@@ -47,6 +47,10 @@ const Header = styled.header`
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
 	font-size: 0.875rem;
+
+	button {
+		background: transparent;
+	}
 `;
 
 const HeaderActions = styled.div`
@@ -66,10 +70,12 @@ const HeaderActions = styled.div`
 
 const BodyWrapper = styled.div`
 	width: 100%;
+	flex-direction: column;
+	flex: 1;
+	flex-basis: auto;
 `;
 
 const Body = styled.div`
-	height: 22rem;
 	width: 100%;
 	border: ${styleVars.border};
 	border-bottom: none;
@@ -77,6 +83,7 @@ const Body = styled.div`
 	overflow: hidden;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
+	flex: 1;
 `;
 
 const Anchor = styled.div`
@@ -102,15 +109,14 @@ const FormInput = styled.input`
 `;
 
 const FormButton = styled.button`
-	width: 2rem;
-	height: 2rem;
+	width: 4rem;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: ${styleVars.color_primary};
 	border: none;
 	outline: none;
-	border-radius: 50%;
 	transition: ${styleVars.transition};
 
 	&:hover {
@@ -184,7 +190,7 @@ const Chat = (props) => {
 	}
 
 	const chatBodyStyle = {
-		display: chatVisible ? 'block' : 'none'
+		display: chatVisible ? 'flex' : 'none'
 	}
 
 	return (
@@ -196,7 +202,6 @@ const Chat = (props) => {
 				<HeaderActions>
 					{/* reloads the chat, basically */}
 					<button onClick={() => {
-						setDeviceId(Math.random().toString(36).substring(7));
 						setMessageGroups([]);
 						setMessage("");
 					}}>
