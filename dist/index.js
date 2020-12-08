@@ -279,7 +279,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 1rem;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;

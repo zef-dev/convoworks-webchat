@@ -259,7 +259,7 @@ const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	background: ${0};
 	padding: ${0};
 	color: ${0};
-	font-size: 0.875rem;
+	font-size: 1rem;
 
 	button {
 		background: transparent;

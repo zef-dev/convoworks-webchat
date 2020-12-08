@@ -46,7 +46,7 @@ const Header = styled.header`
 	background: ${styleVars.color_primary};
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
-	font-size: 0.875rem;
+	font-size: 1rem;
 
 	button {
 		background: transparent;
