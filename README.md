@@ -6,11 +6,12 @@ Webchat for the Convoworks
 
 ## usage
 ``` 
-import {ConvoChatComponent} from '@zef-dev/convoworks-webchat'
+import ConvoworksWebchat from '@zef-dev/convoworks-webchat'
 
-<ConvoChatComponent serviceId='servis' variant='b' isLaunch={false} />
+<ConvoworksWebchat apiUrl="http://localhost:9090/rest_public/convo/v1" serviceId="servis" variant="b" isLaunch={false} />
 ```
 ## required parameters 
+```apiUrl={string}```
 ```serviceId={string}```
 ```variant={string}```
 ```serviceId={boolean}```
