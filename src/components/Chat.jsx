@@ -6,6 +6,7 @@ import { IconRefresh, IconSend } from "../assets/icons/Icons";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { styleVars } from "./styles";
+import { IconMinus } from "../assets/icons/Icons";
 
 const Wrapper = styled.div`
 	text-align: center;
@@ -61,6 +62,10 @@ const HeaderActions = styled.div`
 			stroke: ${styleVars.color_white};
 		}
 	}
+`;
+
+const BodyWrapper = styled.div`
+	width: 100%;
 `;
 
 const Body = styled.div`
@@ -178,6 +183,10 @@ const Chat = (props) => {
 			.catch((err) => console.log(err));
 	}
 
+	const chatBodyStyle = {
+		display: chatVisible ? 'block' : 'none'
+	}
+
 	return (
 		<Wrapper className="convo-chat">
 			<Header
@@ -185,6 +194,7 @@ const Chat = (props) => {
 			>
 				<span>{props.title ? props.title : 'Title'}</span>
 				<HeaderActions>
+					{/* reloads the chat, basically */}
 					<button onClick={() => {
 						setDeviceId(Math.random().toString(36).substring(7));
 						setMessageGroups([]);
@@ -192,55 +202,56 @@ const Chat = (props) => {
 					}}>
 						<IconRefresh />
 					</button>
+					{/* minimize or maximize */}
 					<button
 						onClick={() => {
 							setChatVisible(!chatVisible);
 						}}
-					>_</button>
+					>
+						<IconMinus />
+					</button>
 				</HeaderActions>
 			</Header>
-			{chatVisible && (
-				<React.Fragment>
-					<Body className="convo-chat__body" ref={scrollArea}>
-						{messageGroups.map((item, index) => {
-							return (
-								<MessageGroup
-									key={index}
-									text={item.text}
-									text_responses={item.text_responses}
-									scrollArea={scrollArea}
-									scrollAnchor={scrollAnchor}
-								/>
-							);
-						})}
-						<Anchor
-							className="convo-chat__anchor"
-							ref={scrollAnchor}
-						/>
-					</Body>
-					<Form
-						className="convo-chat__form"
-						onSubmit={(e) => {
-							e.preventDefault();
-							message && sendMessage(message);
+			<BodyWrapper style={chatBodyStyle}>
+				<Body className="convo-chat__body" ref={scrollArea}>
+					{messageGroups.map((item, index) => {
+						return (
+							<MessageGroup
+								key={index}
+								text={item.text}
+								text_responses={item.text_responses}
+								scrollArea={scrollArea}
+								scrollAnchor={scrollAnchor}
+							/>
+						);
+					})}
+					<Anchor
+						className="convo-chat__anchor"
+						ref={scrollAnchor}
+					/>
+				</Body>
+				<Form
+					className="convo-chat__form"
+					onSubmit={(e) => {
+						e.preventDefault();
+						message && sendMessage(message);
+					}}
+				>
+					<FormInput
+						ref={mainInput}
+						type="text"
+						defaultValue={""}
+						placeholder="Type a message"
+						onChange={(e) => {
+							console.log(e);
+							setMessage(e.target.value);
 						}}
-					>
-						<FormInput
-							ref={mainInput}
-							type="text"
-							defaultValue={""}
-							placeholder="Type a message"
-							onChange={(e) => {
-								console.log(e);
-								setMessage(e.target.value);
-							}}
-						/>
-						<FormButton type="submit">
-							<IconSend />
-						</FormButton>
-					</Form>
-				</React.Fragment>
-			)}
+					/>
+					<FormButton type="submit">
+						<IconSend />
+					</FormButton>
+				</Form>
+			</BodyWrapper>
 		</Wrapper>
 	);
 };

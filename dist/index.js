@@ -187,9 +187,39 @@ function IconRefresh() {
     d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
   })));
 }
+function IconMinus() {
+  return /*#__PURE__*/React__default.createElement(Icon, {
+    className: "convo-chat__icon"
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /*#__PURE__*/React__default.createElement("line", {
+    x1: "5",
+    y1: "12",
+    x2: "19",
+    y2: "12"
+  })));
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -199,7 +229,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tdisplay: flex;\n\talign-items: center;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -209,7 +239,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tdisplay: flex;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -219,7 +249,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -229,7 +259,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -270,11 +300,12 @@ function _templateObject$2() {
 var Wrapper = styled.div(_templateObject$2(), styleVars.color_white);
 var Header = styled.header(_templateObject2$1(), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
 var HeaderActions = styled.div(_templateObject3$1(), styleVars.color_white, styleVars.color_white);
-var Body = styled.div(_templateObject4(), styleVars.border);
-var Anchor = styled.div(_templateObject5());
-var Form = styled.form(_templateObject6(), styleVars.border, styleVars.border);
-var FormInput = styled.input(_templateObject7());
-var FormButton = styled.button(_templateObject8(), styleVars.color_primary, styleVars.transition);
+var BodyWrapper = styled.div(_templateObject4());
+var Body = styled.div(_templateObject5(), styleVars.border);
+var Anchor = styled.div(_templateObject6());
+var Form = styled.form(_templateObject7(), styleVars.border, styleVars.border);
+var FormInput = styled.input(_templateObject8());
+var FormButton = styled.button(_templateObject9(), styleVars.color_primary, styleVars.transition);
 
 var Chat = function Chat(props) {
   var _useState = React.useState(""),
@@ -333,6 +364,9 @@ var Chat = function Chat(props) {
     });
   }
 
+  var chatBodyStyle = {
+    display: chatVisible ? 'block' : 'none'
+  };
   return /*#__PURE__*/React__default.createElement(Wrapper, {
     className: "convo-chat"
   }, /*#__PURE__*/React__default.createElement(Header, {
@@ -347,7 +381,9 @@ var Chat = function Chat(props) {
     onClick: function onClick() {
       setChatVisible(!chatVisible);
     }
-  }, "_"))), chatVisible && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Body, {
+  }, /*#__PURE__*/React__default.createElement(IconMinus, null)))), /*#__PURE__*/React__default.createElement(BodyWrapper, {
+    style: chatBodyStyle
+  }, /*#__PURE__*/React__default.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
   }, messageGroups.map(function (item, index) {

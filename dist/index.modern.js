@@ -191,6 +191,26 @@ function IconRefresh() {
     d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
   })));
 }
+function IconMinus() {
+  return /*#__PURE__*/React.createElement(Icon, {
+    className: "convo-chat__icon"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: "5",
+    y1: "12",
+    x2: "19",
+    y2: "12"
+  })));
+}
 
 let _$2 = t => t,
     _t$2,
@@ -200,7 +220,8 @@ let _$2 = t => t,
     _t5,
     _t6,
     _t7,
-    _t8;
+    _t8,
+    _t9;
 const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	text-align: center;
 	display: flex;
@@ -254,7 +275,10 @@ const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
 		}
 	}
 `), styleVars.color_white, styleVars.color_white);
-const Body = styled.div(_t4 || (_t4 = _$2`
+const BodyWrapper = styled.div(_t4 || (_t4 = _$2`
+	width: 100%;
+`));
+const Body = styled.div(_t5 || (_t5 = _$2`
 	height: 22rem;
 	width: 100%;
 	border: ${0};
@@ -264,17 +288,17 @@ const Body = styled.div(_t4 || (_t4 = _$2`
 	overflow-y: scroll;
 	scroll-behavior: smooth;
 `), styleVars.border);
-const Anchor = styled.div(_t5 || (_t5 = _$2`
+const Anchor = styled.div(_t6 || (_t6 = _$2`
 	padding-bottom: 0.625rem;
 `));
-const Form = styled.form(_t6 || (_t6 = _$2`
+const Form = styled.form(_t7 || (_t7 = _$2`
 	width: 100%;
 	border: ${0};
 	border-top: ${0};
 	display: flex;
 	align-items: center;
 `), styleVars.border, styleVars.border);
-const FormInput = styled.input(_t7 || (_t7 = _$2`
+const FormInput = styled.input(_t8 || (_t8 = _$2`
 	text-align: left;
 	width: 100%;
 	padding: 0.875rem 1.25rem;
@@ -283,7 +307,7 @@ const FormInput = styled.input(_t7 || (_t7 = _$2`
 	border-top: none;
 	height: 3.125rem;
 `));
-const FormButton = styled.button(_t8 || (_t8 = _$2`
+const FormButton = styled.button(_t9 || (_t9 = _$2`
 	width: 2rem;
 	height: 2rem;
 	display: flex;
@@ -349,6 +373,9 @@ const Chat = props => {
     }).catch(err => console.log(err));
   }
 
+  const chatBodyStyle = {
+    display: chatVisible ? 'block' : 'none'
+  };
   return /*#__PURE__*/React.createElement(Wrapper, {
     className: "convo-chat"
   }, /*#__PURE__*/React.createElement(Header, {
@@ -363,7 +390,9 @@ const Chat = props => {
     onClick: () => {
       setChatVisible(!chatVisible);
     }
-  }, "_"))), chatVisible && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Body, {
+  }, /*#__PURE__*/React.createElement(IconMinus, null)))), /*#__PURE__*/React.createElement(BodyWrapper, {
+    style: chatBodyStyle
+  }, /*#__PURE__*/React.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
   }, messageGroups.map((item, index) => {
