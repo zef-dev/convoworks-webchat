@@ -9,7 +9,7 @@ const MessageBlob = styled.div`
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-	font-size: 0.875rem;
+	font-size: 1em;
 	line-height: 1.6;
 
 	&:after {

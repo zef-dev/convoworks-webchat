@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 	margin: auto;
 	background: ${styleVars.color_white};
 	box-sizing: border-box;
+	font-size: 16px;
 
 	* {
 		box-sizing: border-box;
@@ -46,7 +47,7 @@ const Header = styled.header`
 	background: ${styleVars.color_primary};
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
-	font-size: 1rem;
+	font-size: 1em;
 
 	button {
 		background: transparent;
@@ -106,6 +107,7 @@ const FormInput = styled.input`
 	line-height: 1.6;
 	border-top: none;
 	height: 3.125rem;
+	font-size: 1em;
 `;
 
 const FormButton = styled.button`

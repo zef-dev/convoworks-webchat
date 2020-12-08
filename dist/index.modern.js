@@ -23,7 +23,7 @@ const MessageBlob = styled.div(_t || (_t = _`
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-	font-size: 0.875rem;
+	font-size: 1em;
 	line-height: 1.6;
 
 	&:after {
@@ -234,6 +234,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	margin: auto;
 	background: ${0};
 	box-sizing: border-box;
+	font-size: 16px;
 
 	* {
 		box-sizing: border-box;
@@ -259,7 +260,7 @@ const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	background: ${0};
 	padding: ${0};
 	color: ${0};
-	font-size: 1rem;
+	font-size: 1em;
 
 	button {
 		background: transparent;
@@ -313,6 +314,7 @@ const FormInput = styled.input(_t8 || (_t8 = _$2`
 	line-height: 1.6;
 	border-top: none;
 	height: 3.125rem;
+	font-size: 1em;
 `));
 const FormButton = styled.button(_t9 || (_t9 = _$2`
 	width: 4rem;

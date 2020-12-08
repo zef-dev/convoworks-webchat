@@ -50,7 +50,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 0.875rem;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid ", ";\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 1em;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid ", ";\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -219,7 +219,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n\tfont-size: 1em;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -279,7 +279,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 1rem;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 1em;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -289,7 +289,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\tfont-size: 16px;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
