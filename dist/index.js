@@ -320,24 +320,18 @@ var Chat = function Chat(props) {
       chatVisible = _useState3[0],
       setChatVisible = _useState3[1];
 
-  var _useState4 = React.useState(null),
-      deviceId = _useState4[0],
-      setDeviceId = _useState4[1];
-
   var serviceId = props.serviceId;
   var variant = props.variant;
+  var deviceId = props.deviceId;
   var mainInput = React.useRef(null);
   var scrollArea = React.useRef(null);
   var scrollAnchor = React.useRef(null);
   var convoPublicApiBaseUrl = props.apiUrl;
   React.useEffect(function () {
-    setDeviceId(Math.random().toString(36).substring(7));
-  }, []);
-  React.useEffect(function () {
-    sendMessage('');
+    sendMessage('', true);
   }, [deviceId]);
 
-  function sendMessage(text) {
+  function sendMessage(text, launch) {
     if (!variant) {
       variant = (_readOnlyError("variant"), "develop");
     }
@@ -346,8 +340,9 @@ var Chat = function Chat(props) {
     var data = {
       device_id: deviceId,
       text: text,
-      lunch: true
+      lunch: launch
     };
+    console.log(url);
     axios({
       method: "post",
       url: url,
@@ -400,7 +395,7 @@ var Chat = function Chat(props) {
     className: "convo-chat__form",
     onSubmit: function onSubmit(e) {
       e.preventDefault();
-      message && sendMessage(message);
+      message && sendMessage(message, false);
     }
   }, /*#__PURE__*/React__default.createElement(FormInput, {
     ref: mainInput,
@@ -408,7 +403,6 @@ var Chat = function Chat(props) {
     defaultValue: "",
     placeholder: "Type a message",
     onChange: function onChange(e) {
-      console.log(e);
       setMessage(e.target.value);
     }
   }), /*#__PURE__*/React__default.createElement(FormButton, {
@@ -421,6 +415,7 @@ function ConvoworksWebchat(props) {
     title: props.title,
     apiUrl: props.apiUrl,
     serviceId: props.serviceId,
+    deviceId: props.deviceId,
     variant: props.variant
   });
 }

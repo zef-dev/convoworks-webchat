@@ -137,11 +137,11 @@ const Chat = (props) => {
 	const [message, setMessage] = useState("");
 	const [messageGroups, setMessageGroups] = useState([]);
 	const [chatVisible, setChatVisible] = useState(true);
-	const [deviceId, setDeviceId] = useState(null);
 
 	// Props
 	const serviceId = props.serviceId;
 	const variant = props.variant;
+	const deviceId = props.deviceId;
 
 	//Refs
 	const mainInput = useRef(null);
@@ -152,15 +152,11 @@ const Chat = (props) => {
 	const convoPublicApiBaseUrl = props.apiUrl;
 
 	useEffect(() => {
-		setDeviceId(Math.random().toString(36).substring(7));
-	}, []);
-
-	useEffect(() => {
-		sendMessage('');
+		sendMessage('', true);
 	}, [deviceId]);
 
 	// handle message submit
-	function sendMessage(text) {
+	function sendMessage(text, launch) {
 		if (!variant) {
 			variant = "develop";
 		}
@@ -172,7 +168,7 @@ const Chat = (props) => {
 			variant +
 			"/" +
 			serviceId;
-		const data = { device_id: deviceId, text: text, lunch: true };
+		const data = { device_id: deviceId, text: text, lunch: launch };
 
 		// post request
 		axios({ method: "post", url: url, data: data })
@@ -241,7 +237,7 @@ const Chat = (props) => {
 					className="convo-chat__form"
 					onSubmit={(e) => {
 						e.preventDefault();
-						message && sendMessage(message);
+						message && sendMessage(message, false);
 					}}
 				>
 					<FormInput
@@ -250,7 +246,6 @@ const Chat = (props) => {
 						defaultValue={""}
 						placeholder="Type a message"
 						onChange={(e) => {
-							console.log(e);
 							setMessage(e.target.value);
 						}}
 					/>
