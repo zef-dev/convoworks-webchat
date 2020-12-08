@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef } from "react";
 import axios from "axios";
 import MessageGroup from "./messages/MessageGroup";
-import IconSend from "../assets/icons/IconSend";
+import { IconRefresh, IconSend } from "../assets/icons/Icons";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { styleVars } from "./styles";
@@ -14,13 +14,25 @@ const Wrapper = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	height: 100%;
-	width: 18.75rem;
+	width: 100%;
 	margin: auto;
 	background: ${styleVars.color_white};
 	box-sizing: border-box;
 
 	* {
 		box-sizing: border-box;
+	}
+
+	button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: none;
+		outline: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
 	}
 `;
 
@@ -29,11 +41,26 @@ const Header = styled.header`
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background: ${styleVars.color_primary};
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
-	cursor: pointer;
 	font-size: 0.875rem;
+`;
+
+const HeaderActions = styled.div`
+	display: flex;
+	align-items: center;
+
+	button {
+		padding: 0.35rem;
+		margin-left: 0.625rem;
+		color: ${styleVars.color_white};
+
+		svg {
+			stroke: ${styleVars.color_white};
+		}
+	}
 `;
 
 const Body = styled.div`
@@ -103,7 +130,6 @@ const Chat = (props) => {
 	// Props
 	const serviceId = props.serviceId;
 	const variant = props.variant;
-	const isLaunch = props.isLaunch;
 
 	//Refs
 	const mainInput = useRef(null);
@@ -114,7 +140,11 @@ const Chat = (props) => {
 	const convoPublicApiBaseUrl = props.apiUrl;
 
 	useEffect(() => {
-		setDeviceId("device");
+		setDeviceId(Math.random().toString(36).substring(7));
+	}, []);
+
+	useEffect(() => {
+		sendMessage('');
 	}, []);
 
 	// handle message submit
@@ -126,11 +156,11 @@ const Chat = (props) => {
 		// request variables
 		const url =
 			convoPublicApiBaseUrl +
-			"/service-run/webchat/" +
+			"/service-run/convo_chat/" +
 			variant +
 			"/" +
 			serviceId;
-		const data = { device_id: deviceId, text: text, lunch: isLaunch };
+		const data = { device_id: deviceId, text: text, lunch: true };
 
 		// post request
 		axios({ method: "post", url: url, data: data })
@@ -142,6 +172,7 @@ const Chat = (props) => {
 						text_responses: res.data.text_responses,
 					},
 				]);
+
 				setMessage(null);
 				mainInput.current.value = "";
 			})
@@ -152,11 +183,22 @@ const Chat = (props) => {
 		<Wrapper className="convo-chat">
 			<Header
 				className="convo-chat__header"
-				onClick={() => {
-					setChatVisible(!chatVisible);
-				}}
 			>
-				Chat
+				<span>{props.title ? props.title : 'Title'}</span>
+				<HeaderActions>
+					<button onClick={() => {
+						setDeviceId(Math.random().toString(36).substring(7));
+						setMessageGroups([]);
+						setMessage("");
+					}}>
+						<IconRefresh />
+					</button>
+					<button
+						onClick={() => {
+							setChatVisible(!chatVisible);
+						}}
+					>_</button>
+				</HeaderActions>
 			</Header>
 			{chatVisible && (
 				<React.Fragment>

@@ -25,7 +25,7 @@ var styleVars = {
   color_black: "#000",
   text_color: "#fff",
   input_padding: "0.875rem 1.25rem",
-  border: "1px solid rgba(#000, 0.1)",
+  border: "1px solid rgba(0,0,0, 0.1)",
   transition: "all 220ms ease-in-out"
 };
 
@@ -134,7 +134,7 @@ function MessageGroup(props) {
 }
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\twidth: 1.125rem;\n\n\tsvg {\n\t\twidth: 100%;\n\t}\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -143,7 +143,6 @@ function _templateObject$1() {
   return data;
 }
 var Icon = styled.div(_templateObject$1());
-
 function IconSend() {
   return /*#__PURE__*/React__default.createElement(Icon, {
     className: "convo-chat__icon"
@@ -167,9 +166,40 @@ function IconSend() {
     points: "22 2 15 22 11 13 2 9 22 2"
   })));
 }
+function IconRefresh() {
+  return /*#__PURE__*/React__default.createElement(Icon, {
+    className: "convo-chat__icon"
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /*#__PURE__*/React__default.createElement("polyline", {
+    points: "23 4 23 10 17 10"
+  }), /*#__PURE__*/React__default.createElement("polyline", {
+    points: "1 20 1 14 7 14"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+  })));
+}
+
+function _templateObject8() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 2rem;\n\theight: 2rem;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\tborder-radius: 50%;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 0;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -179,7 +209,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 0;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tpadding: 0 0.625rem;\n\tpadding-left: 1.25rem;\n\tdisplay: flex;\n\talign-items: center;\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -189,7 +219,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tpadding: 0 0.625rem;\n\tpadding-left: 1.25rem;\n\tdisplay: flex;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -199,7 +229,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -209,7 +239,7 @@ function _templateObject4() {
 }
 
 function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 22rem;\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\talign-items: center;\n\n\tbutton {\n\t\tpadding: 0.35rem;\n\t\tmargin-left: 0.625rem;\n\t\tcolor: ", ";\n\n\t\tsvg {\n\t\t\tstroke: ", ";\n\t\t}\n\t}\n"]);
 
   _templateObject3$1 = function _templateObject3() {
     return data;
@@ -219,7 +249,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tcursor: pointer;\n\tfont-size: 0.875rem;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 0.875rem;\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -229,7 +259,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 18.75rem;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\tbackground: none;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -239,11 +269,12 @@ function _templateObject$2() {
 }
 var Wrapper = styled.div(_templateObject$2(), styleVars.color_white);
 var Header = styled.header(_templateObject2$1(), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
-var Body = styled.div(_templateObject3$1(), styleVars.border);
-var Anchor = styled.div(_templateObject4());
-var Form = styled.form(_templateObject5(), styleVars.border, styleVars.border);
-var FormInput = styled.input(_templateObject6());
-var FormButton = styled.button(_templateObject7(), styleVars.color_primary, styleVars.transition);
+var HeaderActions = styled.div(_templateObject3$1(), styleVars.color_white, styleVars.color_white);
+var Body = styled.div(_templateObject4(), styleVars.border);
+var Anchor = styled.div(_templateObject5());
+var Form = styled.form(_templateObject6(), styleVars.border, styleVars.border);
+var FormInput = styled.input(_templateObject7());
+var FormButton = styled.button(_templateObject8(), styleVars.color_primary, styleVars.transition);
 
 var Chat = function Chat(props) {
   var _useState = React.useState(""),
@@ -264,13 +295,15 @@ var Chat = function Chat(props) {
 
   var serviceId = props.serviceId;
   var variant = props.variant;
-  var isLaunch = props.isLaunch;
   var mainInput = React.useRef(null);
   var scrollArea = React.useRef(null);
   var scrollAnchor = React.useRef(null);
   var convoPublicApiBaseUrl = props.apiUrl;
   React.useEffect(function () {
-    setDeviceId("device");
+    setDeviceId(Math.random().toString(36).substring(7));
+  }, []);
+  React.useEffect(function () {
+    sendMessage('');
   }, []);
 
   function sendMessage(text) {
@@ -278,11 +311,11 @@ var Chat = function Chat(props) {
       variant = (_readOnlyError("variant"), "develop");
     }
 
-    var url = convoPublicApiBaseUrl + "/service-run/webchat/" + variant + "/" + serviceId;
+    var url = convoPublicApiBaseUrl + "/service-run/convo_chat/" + variant + "/" + serviceId;
     var data = {
       device_id: deviceId,
       text: text,
-      lunch: isLaunch
+      lunch: true
     };
     axios({
       method: "post",
@@ -303,11 +336,18 @@ var Chat = function Chat(props) {
   return /*#__PURE__*/React__default.createElement(Wrapper, {
     className: "convo-chat"
   }, /*#__PURE__*/React__default.createElement(Header, {
-    className: "convo-chat__header",
+    className: "convo-chat__header"
+  }, /*#__PURE__*/React__default.createElement("span", null, props.title ? props.title : 'Title'), /*#__PURE__*/React__default.createElement(HeaderActions, null, /*#__PURE__*/React__default.createElement("button", {
+    onClick: function onClick() {
+      setDeviceId(Math.random().toString(36).substring(7));
+      setMessageGroups([]);
+      setMessage("");
+    }
+  }, /*#__PURE__*/React__default.createElement(IconRefresh, null)), /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick() {
       setChatVisible(!chatVisible);
     }
-  }, "Chat"), chatVisible && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Body, {
+  }, "_"))), chatVisible && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
   }, messageGroups.map(function (item, index) {

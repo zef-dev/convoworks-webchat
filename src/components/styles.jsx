@@ -5,6 +5,6 @@ export const styleVars = {
 	color_black: "#000",
 	text_color: "#fff",
 	input_padding: "0.875rem 1.25rem",
-	border: "1px solid rgba(#000, 0.1)",
+	border: "1px solid rgba(0,0,0, 0.1)",
 	transition: "all 220ms ease-in-out",
 };

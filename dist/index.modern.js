@@ -9,7 +9,7 @@ const styleVars = {
   color_black: "#000",
   text_color: "#fff",
   input_padding: "0.875rem 1.25rem",
-  border: "1px solid rgba(#000, 0.1)",
+  border: "1px solid rgba(0,0,0, 0.1)",
   transition: "all 220ms ease-in-out"
 };
 
@@ -137,8 +137,12 @@ const Icon = styled.div(_t$1 || (_t$1 = _$1`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-`));
+	width: 1.125rem;
 
+	svg {
+		width: 100%;
+	}
+`));
 function IconSend() {
   return /*#__PURE__*/React.createElement(Icon, {
     className: "convo-chat__icon"
@@ -162,6 +166,27 @@ function IconSend() {
     points: "22 2 15 22 11 13 2 9 22 2"
   })));
 }
+function IconRefresh() {
+  return /*#__PURE__*/React.createElement(Icon, {
+    className: "convo-chat__icon"
+  }, /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "23 4 23 10 17 10"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "1 20 1 14 7 14"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+  })));
+}
 
 let _$2 = t => t,
     _t$2,
@@ -170,7 +195,8 @@ let _$2 = t => t,
     _t4,
     _t5,
     _t6,
-    _t7;
+    _t7,
+    _t8;
 const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	text-align: center;
 	display: flex;
@@ -178,7 +204,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	justify-content: flex-end;
 	align-items: center;
 	height: 100%;
-	width: 18.75rem;
+	width: 100%;
 	margin: auto;
 	background: ${0};
 	box-sizing: border-box;
@@ -186,19 +212,45 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	* {
 		box-sizing: border-box;
 	}
+
+	button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: none;
+		outline: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+	}
 `), styleVars.color_white);
 const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	height: 3rem;
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background: ${0};
 	padding: ${0};
 	color: ${0};
-	cursor: pointer;
 	font-size: 0.875rem;
 `), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
-const Body = styled.div(_t3$1 || (_t3$1 = _$2`
+const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
+	display: flex;
+	align-items: center;
+
+	button {
+		padding: 0.35rem;
+		margin-left: 0.625rem;
+		color: ${0};
+
+		svg {
+			stroke: ${0};
+		}
+	}
+`), styleVars.color_white, styleVars.color_white);
+const Body = styled.div(_t4 || (_t4 = _$2`
 	height: 22rem;
 	width: 100%;
 	border: ${0};
@@ -208,10 +260,10 @@ const Body = styled.div(_t3$1 || (_t3$1 = _$2`
 	overflow-y: scroll;
 	scroll-behavior: smooth;
 `), styleVars.border);
-const Anchor = styled.div(_t4 || (_t4 = _$2`
+const Anchor = styled.div(_t5 || (_t5 = _$2`
 	padding-bottom: 0.625rem;
 `));
-const Form = styled.form(_t5 || (_t5 = _$2`
+const Form = styled.form(_t6 || (_t6 = _$2`
 	width: 100%;
 	border: ${0};
 	border-top: ${0};
@@ -220,7 +272,7 @@ const Form = styled.form(_t5 || (_t5 = _$2`
 	display: flex;
 	align-items: center;
 `), styleVars.border, styleVars.border);
-const FormInput = styled.input(_t6 || (_t6 = _$2`
+const FormInput = styled.input(_t7 || (_t7 = _$2`
 	text-align: left;
 	width: 100%;
 	padding: 0.875rem 0;
@@ -228,7 +280,7 @@ const FormInput = styled.input(_t6 || (_t6 = _$2`
 	line-height: 1.6;
 	border-top: none;
 `));
-const FormButton = styled.button(_t7 || (_t7 = _$2`
+const FormButton = styled.button(_t8 || (_t8 = _$2`
 	width: 2rem;
 	height: 2rem;
 	display: flex;
@@ -258,13 +310,15 @@ const Chat = props => {
   const [deviceId, setDeviceId] = useState(null);
   const serviceId = props.serviceId;
   const variant = props.variant;
-  const isLaunch = props.isLaunch;
   const mainInput = useRef(null);
   const scrollArea = useRef(null);
   const scrollAnchor = useRef(null);
   const convoPublicApiBaseUrl = props.apiUrl;
   useEffect(() => {
-    setDeviceId("device");
+    setDeviceId(Math.random().toString(36).substring(7));
+  }, []);
+  useEffect(() => {
+    sendMessage('');
   }, []);
 
   function sendMessage(text) {
@@ -272,11 +326,11 @@ const Chat = props => {
       variant = "develop";
     }
 
-    const url = convoPublicApiBaseUrl + "/service-run/webchat/" + variant + "/" + serviceId;
+    const url = convoPublicApiBaseUrl + "/service-run/convo_chat/" + variant + "/" + serviceId;
     const data = {
       device_id: deviceId,
       text: text,
-      lunch: isLaunch
+      lunch: true
     };
     axios({
       method: "post",
@@ -295,11 +349,18 @@ const Chat = props => {
   return /*#__PURE__*/React.createElement(Wrapper, {
     className: "convo-chat"
   }, /*#__PURE__*/React.createElement(Header, {
-    className: "convo-chat__header",
+    className: "convo-chat__header"
+  }, /*#__PURE__*/React.createElement("span", null, props.title ? props.title : 'Title'), /*#__PURE__*/React.createElement(HeaderActions, null, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setDeviceId(Math.random().toString(36).substring(7));
+      setMessageGroups([]);
+      setMessage("");
+    }
+  }, /*#__PURE__*/React.createElement(IconRefresh, null)), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setChatVisible(!chatVisible);
     }
-  }, "Chat"), chatVisible && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Body, {
+  }, "_"))), chatVisible && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
   }, messageGroups.map((item, index) => {
