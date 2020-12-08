@@ -234,7 +234,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	margin: auto;
 	background: ${0};
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 14px;
 
 	* {
 		box-sizing: border-box;
@@ -260,7 +260,7 @@ const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	background: ${0};
 	padding: ${0};
 	color: ${0};
-	font-size: 1em;
+	font-size: 1.125em;
 
 	button {
 		background: transparent;

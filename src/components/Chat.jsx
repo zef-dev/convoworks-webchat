@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 	margin: auto;
 	background: ${styleVars.color_white};
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 14px;
 
 	* {
 		box-sizing: border-box;
@@ -47,7 +47,7 @@ const Header = styled.header`
 	background: ${styleVars.color_primary};
 	padding: ${styleVars.input_padding};
 	color: ${styleVars.color_white};
-	font-size: 1em;
+	font-size: 1.125em;
 
 	button {
 		background: transparent;
