@@ -2,7 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const styleVars = {
+function _taggedTemplateLiteralLoose(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  strings.raw = raw;
+  return strings;
+}
+
+var styleVars = {
   color_primary: "#2f74ea",
   color_secondary: "red",
   color_white: "#fff",
@@ -13,61 +22,43 @@ const styleVars = {
   transition: "all 220ms ease-in-out"
 };
 
-let _ = t => t,
-    _t,
-    _t2,
-    _t3;
-const MessageBlob = styled.div(_t || (_t = _`
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	font-size: 1em;
-	line-height: 1.6;
+function _templateObject3() {
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-end;\n\ttext-align: right;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-right-radius: 0;\n\t\tmargin-left: auto;\n\t\t\n\t\t&:empty {\n\t\t\tdisplay: none;\n\t\t}\n\t}\n"]);
 
-	&:after {
-		content: "";
-		display: block;
-		height: 0.625rem;
-	}
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
 
-	> div {
-		border: 1px solid ${0};
-		padding: 0.5rem 1rem;
-		padding-bottom: 0.75rem;
-		border-radius: 0.875rem;
-	}
-`), styleVars.color_primary);
-const MessageBlobResponse = styled(MessageBlob)(_t2 || (_t2 = _`
-	justify-content: flex-start;
-	text-align: left;
-	color: ${0};
+  return data;
+}
 
-	> div {
-		background: ${0};
-		border-bottom-left-radius: 0;
-		margin-right: auto;
-	}
-`), styleVars.color_black, styleVars.color_white);
-const MessageBlobUser = styled(MessageBlob)(_t3 || (_t3 = _`
-	justify-content: flex-end;
-	text-align: right;
-	color: ${0};
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n\tjustify-content: flex-start;\n\ttext-align: left;\n\tcolor: ", ";\n\n\t> div {\n\t\tbackground: ", ";\n\t\tborder-bottom-left-radius: 0;\n\t\tmargin-right: auto;\n\t}\n"]);
 
-	> div {
-		background: ${0};
-		border-bottom-right-radius: 0;
-		margin-left: auto;
-		
-		&:empty {
-			display: none;
-		}
-	}
-`), styleVars.color_white, styleVars.color_primary);
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tflex-direction: column;\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tfont-size: 1em;\n\tline-height: 1.6;\n\n\t&:after {\n\t\tcontent: \"\";\n\t\tdisplay: block;\n\t\theight: 0.625rem;\n\t}\n\n\t> div {\n\t\tborder: 1px solid ", ";\n\t\tpadding: 0.5rem 1rem;\n\t\tpadding-bottom: 0.75rem;\n\t\tborder-radius: 0.875rem;\n\t}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var MessageBlob = styled.div(_templateObject(), styleVars.color_primary);
+var MessageBlobResponse = styled(MessageBlob)(_templateObject2(), styleVars.color_black, styleVars.color_white);
+var MessageBlobUser = styled(MessageBlob)(_templateObject3(), styleVars.color_white, styleVars.color_primary);
 
 function Message(props) {
-  const [visible, setVisible] = useState(false);
+  var _useState = useState(false),
+      visible = _useState[0],
+      setVisible = _useState[1];
 
   function findPos(obj) {
     var curtop = 0;
@@ -85,16 +76,16 @@ function Message(props) {
     props.scrollArea.current.scroll(0, findPos(props.scrollAnchor.current));
   }
 
-  useEffect(() => {
+  useEffect(function () {
     if (props.timeout) {
-      setTimeout(() => {
+      setTimeout(function () {
         setVisible(true);
       }, [props.timeout]);
     } else {
       setVisible(true);
     }
   }, [props]);
-  useEffect(() => {
+  useEffect(function () {
     handleScroll();
   }, [visible]);
 
@@ -114,8 +105,8 @@ function Message(props) {
 }
 
 function MessageGroup(props) {
-  const handleResponses = items => {
-    return items.map((item, index) => {
+  var handleResponses = function handleResponses(items) {
+    return items.map(function (item, index) {
       return /*#__PURE__*/React.createElement(Message, {
         type: 'response',
         text: item,
@@ -135,18 +126,16 @@ function MessageGroup(props) {
   }), handleResponses(props.text_responses));
 }
 
-let _$1 = t => t,
-    _t$1;
-const Icon = styled.div(_t$1 || (_t$1 = _$1`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 1.125rem;
+function _templateObject$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\twidth: 1.125rem;\n\n\tsvg {\n\t\twidth: 100%;\n\t}\n"]);
 
-	svg {
-		width: 100%;
-	}
-`));
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Icon = styled.div(_templateObject$1());
 function IconSend() {
   return /*#__PURE__*/React.createElement(Icon, {
     className: "convo-chat__icon"
@@ -160,7 +149,7 @@ function IconSend() {
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
-    class: "feather feather-send"
+    "class": "feather feather-send"
   }, /*#__PURE__*/React.createElement("line", {
     x1: "22",
     y1: "2",
@@ -212,174 +201,153 @@ function IconMinus() {
   })));
 }
 
-let _$2 = t => t,
-    _t$2,
-    _t2$1,
-    _t3$1,
-    _t4,
-    _t5,
-    _t6,
-    _t7,
-    _t8,
-    _t9;
-const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	flex-basis: auto;
-	margin: auto;
-	background: ${0};
-	box-sizing: border-box;
-	font-size: 14px;
+function _templateObject9() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 4rem;\n\theight: 100%;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground: ", ";\n\tborder: none;\n\toutline: none;\n\ttransition: ", ";\n\n\t&:hover {\n\t\tcursor: pointer;\n\t\topacity: 0.75;\n\t}\n\n\tsvg {\n\t\tfilter: brightness(0) invert(1);\n\t\twidth: 1rem;\n\t}\n"]);
 
-	* {
-		box-sizing: border-box;
-	}
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
 
-	button {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		outline: none;
-		border: none;
-		padding: 0;
-		margin: 0;
-		cursor: pointer;
-	}
-`), styleVars.color_white);
-const Header = styled.header(_t2$1 || (_t2$1 = _$2`
-	height: 3.125rem;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: ${0};
-	padding: ${0};
-	color: ${0};
-	font-size: 1.125em;
+  return data;
+}
 
-	button {
-		background: transparent;
-	}
-`), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
-const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
-	display: flex;
-	align-items: center;
+function _templateObject8() {
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: left;\n\twidth: 100%;\n\tpadding: 0.875rem 1.25rem;\n\tborder: none;\n\tline-height: 1.6;\n\tborder-top: none;\n\theight: 3.125rem;\n\tfont-size: 1em;\n"]);
 
-	button {
-		padding: 0.35rem;
-		margin-left: 0.625rem;
-		color: ${0};
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
 
-		svg {
-			stroke: ${0};
-		}
-	}
-`), styleVars.color_white, styleVars.color_white);
-const BodyWrapper = styled.div(_t4 || (_t4 = _$2`
-	width: 100%;
-	flex-direction: column;
-	flex: 1;
-	flex-basis: auto;
-`));
-const Body = styled.div(_t5 || (_t5 = _$2`
-	width: 100%;
-	border: ${0};
-	border-bottom: none;
-	padding: 1rem 1.25rem;
-	overflow: hidden;
-	overflow-y: scroll;
-	scroll-behavior: smooth;
-	flex: 1;
-`), styleVars.border);
-const Anchor = styled.div(_t6 || (_t6 = _$2`
-	padding-bottom: 0.625rem;
-`));
-const Form = styled.form(_t7 || (_t7 = _$2`
-	width: 100%;
-	border: ${0};
-	border-top: ${0};
-	display: flex;
-	align-items: center;
-`), styleVars.border, styleVars.border);
-const FormInput = styled.input(_t8 || (_t8 = _$2`
-	text-align: left;
-	width: 100%;
-	padding: 0.875rem 1.25rem;
-	border: none;
-	line-height: 1.6;
-	border-top: none;
-	height: 3.125rem;
-	font-size: 1em;
-`));
-const FormButton = styled.button(_t9 || (_t9 = _$2`
-	width: 4rem;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: ${0};
-	border: none;
-	outline: none;
-	transition: ${0};
+  return data;
+}
 
-	&:hover {
-		cursor: pointer;
-		opacity: 0.75;
-	}
+function _templateObject7() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-top: ", ";\n\tdisplay: flex;\n\talign-items: center;\n"]);
 
-	svg {
-		filter: brightness(0) invert(1);
-		width: 1rem;
-	}
-`), styleVars.color_primary, styleVars.transition);
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
 
-const Chat = props => {
-  const [message, setMessage] = useState("");
-  const [messageGroups, setMessageGroups] = useState([]);
-  const [chatVisible, setChatVisible] = useState(true);
-  const serviceId = props.serviceId;
-  const variant = props.variant;
-  const deviceId = props.deviceId;
-  const mainInput = useRef(null);
-  const scrollArea = useRef(null);
-  const scrollAnchor = useRef(null);
-  const convoPublicApiBaseUrl = props.apiUrl;
-  useEffect(() => {
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteralLoose(["\n\tpadding-bottom: 0.625rem;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tborder: ", ";\n\tborder-bottom: none;\n\tpadding: 1rem 1.25rem;\n\toverflow: hidden;\n\toverflow-y: scroll;\n\tscroll-behavior: smooth;\n\tflex: 1;\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tflex-direction: column;\n\tflex: 1;\n\tflex-basis: auto;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\tdisplay: flex;\n\talign-items: center;\n\n\tbutton {\n\t\tpadding: 0.35rem;\n\t\tmargin-left: 0.625rem;\n\t\tcolor: ", ";\n\n\t\tsvg {\n\t\t\tstroke: ", ";\n\t\t}\n\t}\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$1() {
+  var data = _taggedTemplateLiteralLoose(["\n\theight: 3.125rem;\n\twidth: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tbackground: ", ";\n\tpadding: ", ";\n\tcolor: ", ";\n\tfont-size: 1.125em;\n\n\tbutton {\n\t\tbackground: transparent;\n\t}\n"]);
+
+  _templateObject2$1 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$2() {
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\tfont-size: 14px;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
+
+  _templateObject$2 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper = styled.div(_templateObject$2(), styleVars.color_white);
+var Header = styled.header(_templateObject2$1(), styleVars.color_primary, styleVars.input_padding, styleVars.color_white);
+var HeaderActions = styled.div(_templateObject3$1(), styleVars.color_white, styleVars.color_white);
+var BodyWrapper = styled.div(_templateObject4());
+var Body = styled.div(_templateObject5(), styleVars.border);
+var Anchor = styled.div(_templateObject6());
+var Form = styled.form(_templateObject7(), styleVars.border, styleVars.border);
+var FormInput = styled.input(_templateObject8());
+var FormButton = styled.button(_templateObject9(), styleVars.color_primary, styleVars.transition);
+
+var Chat = function Chat(props) {
+  var _useState = useState(""),
+      message = _useState[0],
+      setMessage = _useState[1];
+
+  var _useState2 = useState([]),
+      messageGroups = _useState2[0],
+      setMessageGroups = _useState2[1];
+
+  var _useState3 = useState(true),
+      chatVisible = _useState3[0],
+      setChatVisible = _useState3[1];
+
+  var serviceId = props.serviceId;
+  var variant = props.variant;
+  var deviceId = props.deviceId;
+  var mainInput = useRef(null);
+  var scrollArea = useRef(null);
+  var scrollAnchor = useRef(null);
+  var convoPublicApiBaseUrl = props.apiUrl;
+  useEffect(function () {
     sendMessage('', true);
   }, [deviceId]);
 
   function sendMessage(text, launch) {
-    if (!variant) {
-      variant = "develop";
-    }
-
-    const url = convoPublicApiBaseUrl + "/service-run/convo_chat/" + variant + "/" + serviceId;
-    const data = {
+    var url = convoPublicApiBaseUrl + "/service-run/convo_chat/" + variant + "/" + serviceId;
+    var data = {
       device_id: deviceId,
       text: text,
       lunch: launch
     };
-    console.log(url);
     axios({
       method: "post",
       url: url,
       data: data
-    }).then(res => {
-      setMessageGroups([...messageGroups, {
+    }).then(function (res) {
+      setMessageGroups([].concat(messageGroups, [{
         text: message,
         text_responses: res.data.text_responses
-      }]);
+      }]));
       setMessage(null);
       mainInput.current.value = "";
-    }).catch(err => console.log(err));
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   }
 
-  const chatBodyStyle = {
+  var chatBodyStyle = {
     display: chatVisible ? 'flex' : 'none'
   };
   return /*#__PURE__*/React.createElement(Wrapper, {
@@ -387,12 +355,14 @@ const Chat = props => {
   }, /*#__PURE__*/React.createElement(Header, {
     className: "convo-chat__header"
   }, /*#__PURE__*/React.createElement("span", null, props.title ? props.title : 'Title'), /*#__PURE__*/React.createElement(HeaderActions, null, /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
+    onClick: function onClick() {
       setMessageGroups([]);
       setMessage("");
+      mainInput.current.value = "";
+      sendMessage("", true);
     }
   }, /*#__PURE__*/React.createElement(IconRefresh, null)), /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
+    onClick: function onClick() {
       setChatVisible(!chatVisible);
     }
   }, /*#__PURE__*/React.createElement(IconMinus, null)))), /*#__PURE__*/React.createElement(BodyWrapper, {
@@ -400,7 +370,7 @@ const Chat = props => {
   }, /*#__PURE__*/React.createElement(Body, {
     className: "convo-chat__body",
     ref: scrollArea
-  }, messageGroups.map((item, index) => {
+  }, messageGroups.map(function (item, index) {
     return /*#__PURE__*/React.createElement(MessageGroup, {
       key: index,
       text: item.text,
@@ -413,7 +383,7 @@ const Chat = props => {
     ref: scrollAnchor
   })), /*#__PURE__*/React.createElement(Form, {
     className: "convo-chat__form",
-    onSubmit: e => {
+    onSubmit: function onSubmit(e) {
       e.preventDefault();
       message && sendMessage(message, false);
     }
@@ -422,7 +392,7 @@ const Chat = props => {
     type: "text",
     defaultValue: "",
     placeholder: "Type a message",
-    onChange: e => {
+    onChange: function onChange(e) {
       setMessage(e.target.value);
     }
   }), /*#__PURE__*/React.createElement(FormButton, {

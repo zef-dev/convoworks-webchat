@@ -14,10 +14,6 @@ function _taggedTemplateLiteralLoose(strings, raw) {
   return strings;
 }
 
-function _readOnlyError(name) {
-  throw new Error("\"" + name + "\" is read-only");
-}
-
 var styleVars = {
   color_primary: "#2f74ea",
   color_secondary: "red",
@@ -332,17 +328,12 @@ var Chat = function Chat(props) {
   }, [deviceId]);
 
   function sendMessage(text, launch) {
-    if (!variant) {
-      variant = (_readOnlyError("variant"), "develop");
-    }
-
     var url = convoPublicApiBaseUrl + "/service-run/convo_chat/" + variant + "/" + serviceId;
     var data = {
       device_id: deviceId,
       text: text,
       lunch: launch
     };
-    console.log(url);
     axios({
       method: "post",
       url: url,
@@ -370,6 +361,8 @@ var Chat = function Chat(props) {
     onClick: function onClick() {
       setMessageGroups([]);
       setMessage("");
+      mainInput.current.value = "";
+      sendMessage("", true);
     }
   }, /*#__PURE__*/React__default.createElement(IconRefresh, null)), /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick() {

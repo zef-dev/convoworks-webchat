@@ -156,11 +156,7 @@ const Chat = (props) => {
 	}, [deviceId]);
 
 	// handle message submit
-	function sendMessage(text, launch) {
-		if (!variant) {
-			variant = "develop";
-		}
-
+	function sendMessage(text, launch) { 
 		// request variables
 		const url =
 			convoPublicApiBaseUrl +
@@ -202,6 +198,8 @@ const Chat = (props) => {
 					<button onClick={() => {
 						setMessageGroups([]);
 						setMessage("");
+						mainInput.current.value = "";
+						sendMessage("", true);
 					}}>
 						<IconRefresh />
 					</button>
