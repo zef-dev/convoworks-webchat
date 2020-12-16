@@ -255,7 +255,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tflex-direction: column;\n\tflex: 1;\n\tflex-basis: auto;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\twidth: 100%;\n\tmax-height: 100%;\n\tflex-direction: column;\n\tflex: 1;\n\tflex-basis: auto;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -285,7 +285,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\tfont-size: 14px;\n\n\t* {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n\ttext-align: center;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-end;\n\talign-items: center;\n\theight: 100%;\n\twidth: 100%;\n\tflex-basis: auto;\n\tmargin: auto;\n\tbackground: ", ";\n\tbox-sizing: border-box;\n\tfont-size: 14px;\n\n\t*, *:before, *:after {\n\t\tbox-sizing: border-box;\n\t}\n\n\tbutton {\n\t\tdisplay: inline-flex;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t\toutline: none;\n\t\tborder: none;\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tcursor: pointer;\n\t}\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -343,11 +343,14 @@ var Chat = function Chat(props) {
         text: message,
         text_responses: res.data.text_responses
       }]));
-      setMessage(null);
-      mainInput.current.value = "";
     })["catch"](function (err) {
-      return console.log(err);
+      setMessageGroups([].concat(messageGroups, [{
+        text: err.toString(),
+        text_responses: []
+      }]));
     });
+    setMessage(null);
+    mainInput.current.value = "";
   }
 
   var chatBodyStyle = {

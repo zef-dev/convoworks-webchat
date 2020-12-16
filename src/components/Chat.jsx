@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 	box-sizing: border-box;
 	font-size: 14px;
 
-	* {
+	*, *:before, *:after {
 		box-sizing: border-box;
 	}
 
@@ -71,6 +71,7 @@ const HeaderActions = styled.div`
 
 const BodyWrapper = styled.div`
 	width: 100%;
+	max-height: 100%;
 	flex-direction: column;
 	flex: 1;
 	flex-basis: auto;
@@ -156,7 +157,7 @@ const Chat = (props) => {
 	}, [deviceId]);
 
 	// handle message submit
-	function sendMessage(text, launch) { 
+	function sendMessage(text, launch) {
 		// request variables
 		const url =
 			convoPublicApiBaseUrl +
@@ -176,11 +177,19 @@ const Chat = (props) => {
 						text_responses: res.data.text_responses,
 					},
 				]);
-
-				setMessage(null);
-				mainInput.current.value = "";
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				setMessageGroups([
+					...messageGroups,
+					{
+						text: err.toString(),
+						text_responses: [],
+					},
+				]);
+			});
+
+		setMessage(null);
+		mainInput.current.value = "";
 	}
 
 	const chatBodyStyle = {
