@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-basis: auto;
 	margin: auto;
-	background: ${styleVars.color_white};
 	box-sizing: border-box;
 	font-size: 14px;
+	background: none;
 
 	*, *:before, *:after {
 		box-sizing: border-box;
@@ -71,10 +71,11 @@ const HeaderActions = styled.div`
 
 const BodyWrapper = styled.div`
 	width: 100%;
-	max-height: 100%;
+	height: calc(100% - 3.125rem);
 	flex-direction: column;
 	flex: 1;
 	flex-basis: auto;
+	background: ${styleVars.color_white};
 `;
 
 const Body = styled.div`

@@ -232,9 +232,9 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 	width: 100%;
 	flex-basis: auto;
 	margin: auto;
-	background: ${0};
 	box-sizing: border-box;
 	font-size: 14px;
+	background: none;
 
 	*, *:before, *:after {
 		box-sizing: border-box;
@@ -250,7 +250,7 @@ const Wrapper = styled.div(_t$2 || (_t$2 = _$2`
 		margin: 0;
 		cursor: pointer;
 	}
-`), styleVars.color_white);
+`));
 const Header = styled.header(_t2$1 || (_t2$1 = _$2`
 	height: 3.125rem;
 	width: 100%;
@@ -282,11 +282,12 @@ const HeaderActions = styled.div(_t3$1 || (_t3$1 = _$2`
 `), styleVars.color_white, styleVars.color_white);
 const BodyWrapper = styled.div(_t4 || (_t4 = _$2`
 	width: 100%;
-	max-height: 100%;
+	height: calc(100% - 3.125rem);
 	flex-direction: column;
 	flex: 1;
 	flex-basis: auto;
-`));
+	background: ${0};
+`), styleVars.color_white);
 const Body = styled.div(_t5 || (_t5 = _$2`
 	width: 100%;
 	border: ${0};
